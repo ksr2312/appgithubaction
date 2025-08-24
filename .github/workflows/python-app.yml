@@ -1,0 +1,37 @@
+name: Python CI ## workflow name
+## Events(Push,Pull,Merge,Delete) --> based on events we can trigger workflow
+# Trigger the workflow on any push to the main branch or pull request
+on: ##keyword
+  push: ## event1
+    branches: # BRANCHES: WHERE WE WANT TO TRIGGER
+      - main
+  pull_request: ##event2
+    branches:
+      - main
+## Similiarly we can create more events like - Stratergy, production etc.
+jobs:
+  test:
+    runs-on: ubuntu-latest ## git hub runs whole app in ubuntu-latest/windows/mac-os CONTAINER.
+
+    steps: ## workflow steps specification
+      # Step 1: Check out the code from the repository
+      - name: Check out code
+        uses: actions/checkout@v2 ## perbuilt github action to chk code from repository based on version here v2.
+
+      # Step 2: Set up Python environment
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.8'
+
+      # Step 3: Install dependencies
+      - name: Install dependencies ## to run all the dependencies we require pytest library
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      # Step 4: Run tests
+      - name: Run tests
+        run: pytest
+
+    ## NOW COPY THE ABOVE CODE FULLY AND PASTE IT IN GITHUB(Actions-->Python Application--> Configure --> paste--> commit changes)

@@ -1,19 +1,19 @@
-## This is the python App
+# This is the python App
 
-# Initialize a new Git repository
+##### Initialize a new Git repository
 git init
 
-# Add all files
+##### Add all files
 git add .
 
-# Commit files
+##### Commit files
 git commit -m "first commit"
 
-# Rename default branch to main (optional, but matches GitHub)
+##### Rename default branch to main (optional, but matches GitHub)
 git branch -M main
 
-# Connect to your GitHub repository (replace with your repo URL)
+##### Connect to your GitHub repository (replace with your repo URL)
 git remote add origin https://github.com/USERNAME/REPO-NAME.git
 
-# Push code to GitHub
+##### Push code to GitHub
 git push -u origin main
